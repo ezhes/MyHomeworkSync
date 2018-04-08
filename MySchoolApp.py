@@ -24,7 +24,7 @@ import urllib2,re,json
 cookie = ""
 
 def login(username,password):
-	url = 'https://coloradoacademy.myschoolapp.com/api/SignIn'
+	url = 'https://domain.myschoolapp.com/api/SignIn'
 	request = urllib2.Request(url, data='{"From":"","Username":"' + username + '","Password":"'+password+'","remember":false,"InterfaceSource":"WebApp"}')
 	request.add_header('Content-Type', 'application/json')
 	res = urllib2.urlopen(request)
@@ -42,7 +42,7 @@ class Assignment(object):
 def getAssignments(startDate,endDate):
 	startDate = startDate.replace("/","%2F")
 	endDate = endDate.replace("/","%2F")
-	url = "https://coloradoacademy.myschoolapp.com/api/DataDirect/AssignmentCenterAssignments/?format=json&filter=2&dateStart=" +startDate+"&dateEnd="+ endDate +"&persona=2&statusList=&sectionList="
+	url = "https://domain.myschoolapp.com/api/DataDirect/AssignmentCenterAssignments/?format=json&filter=2&dateStart=" +startDate+"&dateEnd="+ endDate +"&persona=2&statusList=&sectionList="
 	request = urllib2.Request(url)
 	request.add_header('cookie',cookie)
 	request.add_header("user-agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36")
